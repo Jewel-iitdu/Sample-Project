@@ -1,0 +1,53 @@
+<div *ngIf="!!storageData.length">
+  <div fxLayoutAlign="center center" class="font-size-24 p-48">
+    Product List
+  </div>
+  <div *ngFor="let i of storageData">
+    <div fxLayout="row" fxLayoutAlign="space-around center" class="mb-24">
+      <div
+        fxLayout="row"
+        fxLayoutAlign="start start"
+        fxLayoutGap="24px"
+        class="font-size-20"
+      >
+        <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="12px">
+          <div>Name:</div>
+          <div>Quantity:</div>
+          <div>Price:</div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="12px">
+          <div>{{ i.productname }}</div>
+          <div>{{ i.productquantity }}</div>
+          <div>{{ i.productprice }}</div>
+        </div>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px">
+        <div>
+          <button
+            mat-mini-fab
+            color="primary"
+            fxLayoutAlign="center center"
+            class="cursor-pointer"
+            (click)="editData(i.id)"
+          >
+            <i class="material-icons">
+              edit
+            </i>
+          </button>
+        </div>
+        <div>
+          <button
+            mat-mini-fab
+            fxLayoutAlign="center center"
+            class="cursor-pointer rejected-color-background"
+            (click)="deleteData(i.id)"
+          >
+            <i class="material-icons ">
+              delete_outline
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
